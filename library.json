@@ -1,0 +1,24 @@
+{
+  "name": "PCF8574",
+  "keywords": "I2C, PCF8574, PCF8574A, IO, I/O, shift, rotate",
+  "description": "Arduino library for PCF8574 - I2C IO expander, implements shift rotate.",
+  "authors":
+  [
+    {
+      "name": "Rob Tillaart",
+      "email": "Rob.Tillaart@gmail.com",
+      "maintainer": true
+    }
+  ],
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/RobTillaart/PCF8574.git"
+  },
+  "version":"0.2.0",
+  "frameworks": "arduino",
+  "platforms": "*",
+  "export": {
+    "include": "*"
+  }
+}
