@@ -1,8 +1,9 @@
+
 # PCF8574
 
 Arduino library for PCF8574 - I2C IO expander
 
-# Description
+## Description
 
 This library gives easy control over the 8 pins of a PCF8574 and PCF8574A chip.
 These chips are identical in behavior although there are two distinct address ranges.
@@ -17,7 +18,7 @@ Furthermore some additional functions are implemented that are a little more
 playfull but still are useful.
 
 
-### Interface
+## Interface
 
 **PCF8574(deviceAddress)** Constructor with device address as parameter.
 
@@ -47,7 +48,7 @@ in the class this is faster than reread the pins.
 
 ----
 
-TODO
+TODO description
 
 **setButtonMask(mask)** 
 
@@ -76,6 +77,6 @@ Fills the lower lines with zero's.
 
 **reverse()** revers the "bit pattern" of the lines, high to low and vice versa.
 
-# Operation
+## Operation
 
 See examples
