@@ -62,6 +62,7 @@ unittest(test_read)
     int expect = PCF8574_I2C_ERROR;
     assertEqual(expect, PCF.lastError());
   }
+  printf("test");
   r = PCF.read(8);
   assertEqual(0, r);
   int expect = PCF8574_PIN_ERROR;
