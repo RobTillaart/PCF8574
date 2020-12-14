@@ -2,24 +2,25 @@
 //    FILE: PCF8574.cpp
 //  AUTHOR: Rob Tillaart
 //    DATE: 02-febr-2013
-// VERSION: 0.2.2
+// VERSION: 0.2.3
 // PURPOSE: Arduino library for PCF8574 - I2C IO expander
 //     URL: https://github.com/RobTillaart/PCF8574
 //          http://forum.arduino.cc/index.php?topic=184800
 //
 // HISTORY:
-// 0.2.2  2020-12-07 add Arduino-ci + start unit test + Wire.h in PCF8574.h
-// 0.2.1  2020-06-19 fix library.json
-// 0.2.0  2020-05-22 #pragma once; refactor;
+// 0.2.3  2020-12-14  fix #6 readButton8 ambiguity
+// 0.2.2  2020-12-07  add Arduino-ci + start unit test + Wire.h in PCF8574.h
+// 0.2.1  2020-06-19  fix library.json
+// 0.2.0  2020-05-22  #pragma once; refactor;
 //        removed pre 1.0 support
 //        added begin(dsa, scl) for ESP32
 //        added reverse()
 //
-// 0.1.9  2017-02-27 fix warning about return in readButton8()
-// 0.1.08 2016-05-20 Merged work of Septillion 
+// 0.1.9  2017-02-27  fix warning about return in readButton8()
+// 0.1.08 2016-05-20  Merged work of Septillion 
 //        Fix/refactor ButtonRead8() - see https://github.com/RobTillaart/Arduino/issues/38
 //        missing begin() => mask parameter
-// 0.1.07 2016-05-02 (manually merged) Septillion
+// 0.1.07 2016-05-02  (manually merged) Septillion
 //        added dataOut so a write() doesn't read first,
 //        possibly corrupting a input pin;
 //        fixed shift comment, should read 1..7;
@@ -28,9 +29,9 @@
 //        added buttonRead() and buttonRead8()
 //        which only effect the output while reading
 // 0.1.06 (intermediate) added defined errors + refactor rotate
-// 0.1.05 2016-04-30 refactor, +toggleMask, +rotLeft, +rotRight
-// 0.1.04 2015-05-09 removed ambiguity in read8()
-// 0.1.03 2015-03-02 address int -> uint8_t
+// 0.1.05 2016-04-30  refactor, +toggleMask, +rotLeft, +rotRight
+// 0.1.04 2015-05-09  removed ambiguity in read8()
+// 0.1.03 2015-03-02  address int -> uint8_t
 // 0.1.02 replaced ints with uint8_t to reduce footprint;
 //        added default value for shiftLeft() and shiftRight()
 //        renamed status() to lastError();
