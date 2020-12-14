@@ -3,7 +3,7 @@
 //    FILE: PCF8574.H
 //  AUTHOR: Rob Tillaart
 //    DATE: 02-febr-2013
-// VERSION: 0.2.2
+// VERSION: 0.2.3
 // PURPOSE: Arduino library for PCF8574 - I2C IO expander
 //     URL: https://github.com/RobTillaart/PCF8574
 //          http://forum.arduino.cc/index.php?topic=184800
@@ -15,7 +15,7 @@
 #include "Arduino.h"
 #include "Wire.h"
 
-#define PCF8574_LIB_VERSION "0.2.2"
+#define PCF8574_LIB_VERSION "0.2.3"
 
 #define PCF8574_OK          0x00
 #define PCF8574_PIN_ERROR   0x81

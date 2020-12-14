@@ -38,7 +38,7 @@ in the class this is faster than reread the pins.
 - **valueOut()** returns the last written data. 
 - **setButtonMask(mask)** 
 - **readButton8()**
-- **readButton8(mask = 0xFF)**
+- **readButton8(mask)** 
 - **readButton(pin)**
 - **toggle(pin)** toggles a single pin
 - **toggleMask(mask)** toggles a selection of pins, if you want to invert all pins use 0xFF.
