@@ -42,7 +42,7 @@ public:
 
   //added 0.1.07/08 Septillion
   inline uint8_t readButton8()  { return PCF8574::readButton8(_buttonMask); }
-  uint8_t        readButton8(const uint8_t mask = 0xFF);
+  uint8_t        readButton8(const uint8_t mask);
   uint8_t        readButton(const uint8_t pin);
   inline void    setButtonMask(uint8_t mask) { _buttonMask = mask; };
 
