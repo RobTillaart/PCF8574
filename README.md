@@ -24,24 +24,39 @@ playfull but still are useful.
 
 ## Interface
 
+**PCF8574_INITIAL_VALUE** is a define that can be set compile time or before
+the include of "pcf8574.h" to overrule the default value used with the 
+**begin()** call.
+
+### Constructor
+
 - **PCF8574(deviceAddress, TwoWire \*wire = &Wire)** Constructor with device address, 
 and optional the Wire interface as parameter.
-- **begin(val = 0xFF)** set the initial value for the pins and masks.
-- **begin(sda, scl, val = 0xFF)** idem, for the ESP32 where one can choose the I2C pins
+- **begin(val = PCF8574_INITIAL_VALUE)** set the initial value for the pins and masks.
+- **begin(sda, scl, val = PCF8574_INITIAL_VALUE)** idem, for the ESP32 where one can choose the I2C pins
 What needs to be added in the future is a parameter to choose another Wire interface
 as some processors have multiple hardware Wire interfaces.
 - **isConnected()** checks if the address is visable on the I2C bus
+
+### Read and Write
+
 - **read8()** reads all 8 pins at once. This one does the actual reading.
 - **read(pin)** reads a single pin; pin = 0..7
 - **value()** returns the last read inputs again, as this information is buffered 
 in the class this is faster than reread the pins.
 - **write8(value)** writes all 8 pins at once. This one does the actual reading.
 - **write(pin, value)** writes a single pin; pin = 0..7; value is HIGH(1) or LOW (0)
-- **valueOut()** returns the last written data. 
+- **valueOut()** returns the last written data.
+
+### Button
+
 - **setButtonMask(mask)** 
 - **readButton8()**
 - **readButton8(mask)**
 - **readButton(pin)**
+
+### Special
+
 - **toggle(pin)** toggles a single pin
 - **toggleMask(mask)** toggles a selection of pins, 
 if you want to invert all pins use 0xFF (default value).
@@ -52,6 +67,9 @@ Fills the lower lines with zero's.
 - **rotateRight(n = 1)** rotates output channels to right, moving lowest line to highest line.
 - **rotateLeft(n = 1)** rotates output channels to left, moving highest line to lowest line.
 - **reverse()** revers the "bit pattern" of the lines, high to low and vice versa.
+
+### Misc
+
 - **lastError()** returns the last error from the lib. (see .h file)
 
 ## Error codes
