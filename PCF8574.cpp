@@ -44,27 +44,112 @@
 #include "PCF8574.h"
 
 
-PCF8574::PCF8574(const uint8_t deviceAddress)
+PCF8574::PCF8574(uint8_t interfaceIndex,const uint8_t deviceAddress)
 {
+  _interfaceIndex = interfaceIndex;
   _address = deviceAddress;
   _dataIn = 0;
   _dataOut = 0xFF;
   _buttonMask = 0xFF;
-  _error = PCF8574_OK;
+  
+  if(_interfaceIndex >= PCF8574_INTERFACE_NO_OF_INTERFACES){
+    _error = PCF8574_INTERFACE_NOT_AVAILABLE;
+  }
+  else{
+    _error = PCF8574_OK;
+  }
 }
 
 #if defined (ESP8266) || defined(ESP32)
 void PCF8574::begin(uint8_t sda, uint8_t scl, uint8_t val)
 {
-  Wire.begin(sda, scl);
-  PCF8574::write8(val);
+  if(_interfaceIndex < PCF8574_INTERFACE_NO_OF_INTERFACES){
+
+    switch(_interfaceIndex){
+//always available since "every" Arduino has at least one I2C interface
+      case PCF8574_INTERFACE_WIRE:
+        Wire.begin(sda, scl);
+        break;
+#ifdef WIRE_IMPLEMENT_WIRE1
+      case PCF8574_INTERFACE_WIRE1:
+        Wire1.begin(sda, scl);
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE2
+      case PCF8574_INTERFACE_WIRE2:
+        Wire2.begin(sda, scl);
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE3
+      case PCF8574_INTERFACE_WIRE3:
+        Wire3.begin(sda, scl);
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE4
+      case PCF8574_INTERFACE_WIRE4:
+        Wire4.begin(sda, scl);
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE5
+      case PCF8574_INTERFACE_WIRE5:
+        Wire5.begin(sda, scl);
+        break;
+#endif
+      default:
+        break;
+    }
+  
+    PCF8574::write8(val);
+  }
+  else{
+    _error = PCF8574_INTERFACE_NOT_AVAILABLE;
+  }
 }
 #endif
 
 void PCF8574::begin(uint8_t val)
 {
-  Wire.begin();
-  PCF8574::write8(val);
+  if(_interfaceIndex < PCF8574_INTERFACE_NO_OF_INTERFACES){
+	  
+    switch(_interfaceIndex){
+//always available since "every" Arduino has at least one I2C interface
+      case PCF8574_INTERFACE_WIRE:
+        Wire.begin();
+        break;
+#ifdef WIRE_IMPLEMENT_WIRE1
+      case PCF8574_INTERFACE_WIRE1:
+        Wire1.begin();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE2
+      case PCF8574_INTERFACE_WIRE2:
+        Wire2.begin();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE3
+      case PCF8574_INTERFACE_WIRE3:
+        Wire3.begin();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE4
+      case PCF8574_INTERFACE_WIRE4:
+        Wire4.begin();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE5
+      case PCF8574_INTERFACE_WIRE5:
+        Wire5.begin();
+        break;
+#endif
+      default:
+        break;
+    }
+    
+    PCF8574::write8(val);
+  }
+  else{
+    _error = PCF8574_INTERFACE_NOT_AVAILABLE;
+  }
 }
 
 // removed Wire.beginTransmission(addr);
@@ -74,21 +159,148 @@ void PCF8574::begin(uint8_t val)
 // TODO @800KHz -> ??
 uint8_t PCF8574::read8()
 {
-  if (Wire.requestFrom(_address, (uint8_t)1) != 1)
-  {
+  if(_interfaceIndex < PCF8574_INTERFACE_NO_OF_INTERFACES){
+    
+    uint8_t requestForm_response = 0;
+    
+    switch(_interfaceIndex){
+//always available since "every" Arduino has at least one I2C interface
+      case PCF8574_INTERFACE_WIRE:
+        requestForm_response = Wire.requestFrom(_address, (uint8_t)1);
+        break;
+#ifdef WIRE_IMPLEMENT_WIRE1
+      case PCF8574_INTERFACE_WIRE1:
+        requestForm_response = Wire1.requestFrom(_address, (uint8_t)1);
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE2
+      case PCF8574_INTERFACE_WIRE2:
+        requestForm_response = Wire2.requestFrom(_address, (uint8_t)1);
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE3
+      case PCF8574_INTERFACE_WIRE3:
+        requestForm_response = Wire3.requestFrom(_address, (uint8_t)1);
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE4
+      case PCF8574_INTERFACE_WIRE4:
+        requestForm_response = Wire4.requestFrom(_address, (uint8_t)1);
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE5
+      case PCF8574_INTERFACE_WIRE5:
+        requestForm_response = Wire5.requestFrom(_address, (uint8_t)1);
+        break;
+#endif
+      default:
+        break;
+    }
+    
+    if (requestForm_response != 1)
+    {
+      _error = PCF8574_I2C_ERROR;
+      return _dataIn; // last value
+    }
+    
+    switch(_interfaceIndex){
+//always available since "every" Arduino has at least one I2C interface
+      case PCF8574_INTERFACE_WIRE:
+        _dataIn = Wire.read();
+        break;
+#ifdef WIRE_IMPLEMENT_WIRE1
+      case PCF8574_INTERFACE_WIRE1:
+        _dataIn = Wire1.read();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE2
+      case PCF8574_INTERFACE_WIRE2:
+        _dataIn = Wire2.read();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE3
+      case PCF8574_INTERFACE_WIRE3:
+        _dataIn = Wire3.read();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE4
+      case PCF8574_INTERFACE_WIRE4:
+        _dataIn = Wire4.read();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE5
+      case PCF8574_INTERFACE_WIRE5:
+        _dataIn = Wire5.read();
+        break;
+#endif
+      default:
+        break;
+    }
+    
+    return _dataIn;
+  }
+  else{
     _error = PCF8574_I2C_ERROR;
     return _dataIn; // last value
   }
-  _dataIn = Wire.read();
-  return _dataIn;
 }
 
 void PCF8574::write8(const uint8_t value)
 {
-  _dataOut = value;
-  Wire.beginTransmission(_address);
-  Wire.write(_dataOut);
-  _error = Wire.endTransmission();
+  if(_interfaceIndex < PCF8574_INTERFACE_NO_OF_INTERFACES){
+	  
+    _dataOut = value;
+    
+    switch(_interfaceIndex){
+//always available since "every" Arduino has at least one I2C interface
+      case PCF8574_INTERFACE_WIRE:
+	      Wire.beginTransmission(_address);
+        Wire.write(_dataOut);
+        _error = Wire.endTransmission();
+        break;
+#ifdef WIRE_IMPLEMENT_WIRE1
+      case PCF8574_INTERFACE_WIRE1:
+	      Wire1.beginTransmission(_address);
+        Wire1.write(_dataOut);
+        _error = Wire1.endTransmission();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE2
+      case PCF8574_INTERFACE_WIRE2:
+	      Wire2.beginTransmission(_address);
+        Wire2.write(_dataOut);
+        _error = Wire2.endTransmission();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE3
+      case PCF8574_INTERFACE_WIRE3:
+	      Wire3.beginTransmission(_address);
+        Wire3.write(_dataOut);
+        _error = Wire3.endTransmission();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE4
+      case PCF8574_INTERFACE_WIRE4:
+	      Wire4.beginTransmission(_address);
+        Wire4.write(_dataOut);
+        _error = Wire4.endTransmission();
+        break;
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE5
+      case PCF8574_INTERFACE_WIRE5:
+	      Wire5.beginTransmission(_address);
+        Wire5.write(_dataOut);
+        _error = Wire5.endTransmission();
+        break;
+#endif
+      default:
+        break;
+    }
+    
+  }
+  else{
+    _error = PCF8574_INTERFACE_NOT_AVAILABLE;
+  }
 }
 
 uint8_t PCF8574::read(const uint8_t pin)
