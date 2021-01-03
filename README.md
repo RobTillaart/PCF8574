@@ -24,7 +24,7 @@ playfull but still are useful.
 
 ## Interface
 
-- **PCF8574(deviceAddress)** Constructor with device address as parameter.
+- **PCF8574(interfaceAddress, deviceAddress)** Constructor with interface address and device address as parameter.
 - **begin(val = 0xFF)** set the initial value for the pins and masks.
 - **begin(sda, scl, val = 0xFF)** idem, for the ESP32 where one can choose the I2C pins
 What needs to be added in the future is a parameter to choose another Wire interface
