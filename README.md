@@ -24,7 +24,8 @@ playfull but still are useful.
 
 ## Interface
 
-- **PCF8574(deviceAddress, TwoWire \*wire = &Wire)** Constructor with device address, and optional the Wire interface as parameter.
+- **PCF8574(deviceAddress, TwoWire \*wire = &Wire)** Constructor with device address, 
+and optional the Wire interface as parameter.
 - **begin(val = 0xFF)** set the initial value for the pins and masks.
 - **begin(sda, scl, val = 0xFF)** idem, for the ESP32 where one can choose the I2C pins
 What needs to be added in the future is a parameter to choose another Wire interface
@@ -39,10 +40,11 @@ in the class this is faster than reread the pins.
 - **valueOut()** returns the last written data. 
 - **setButtonMask(mask)** 
 - **readButton8()**
-- **readButton8(mask)** 
+- **readButton8(mask)**
 - **readButton(pin)**
 - **toggle(pin)** toggles a single pin
-- **toggleMask(mask)** toggles a selection of pins, if you want to invert all pins use 0xFF.
+- **toggleMask(mask)** toggles a selection of pins, 
+if you want to invert all pins use 0xFF (default value).
 - **shiftRight(n = 1)** shifts output channels n pins (default 1) pins right (e.g. leds ). 
 Fills the higher lines with zero's.
 - **shiftLeft(n = 1)**  shifts output channels n pins (default 1) pins left (e.g. leds ).
