@@ -56,7 +56,7 @@ public:
   void    rotateLeft(const uint8_t n = 1);
   void    reverse();
 
-  int lastError();
+  int     lastError();
 
 private:
   uint8_t _address;

@@ -50,6 +50,16 @@ Fills the lower lines with zero's.
 - **rotateRight(n = 1)** rotates output channels to right, moving lowest line to highest line.
 - **rotateLeft(n = 1)** rotates output channels to left, moving highest line to lowest line.
 - **reverse()** revers the "bit pattern" of the lines, high to low and vice versa.
+- **lastError()** returns the last error from the lib. (see .h file)
+
+## Error codes
+
+| name  | value | description |
+|:------|:----:|:----|
+| PCF8574_OK         | 0x00 | no error
+| PCF8574_PIN_ERROR  | 0x81 | pin number out of range |
+| PCF8574_I2C_ERROR  | 0x82 | I2C communication error |
+
 
 ## Operation
 
