@@ -27,7 +27,7 @@
 #include <PCF8574.h>
 #include <Wire.h>
 
-PCF8574 pcf20(0x20);
+PCF8574 pcf20(PCF8574_INTERFACE_WIRE, 0x20);
 
 const byte onboardLed = 13;
 const byte PcfButtonLedPin = 0;
