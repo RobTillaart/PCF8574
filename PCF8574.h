@@ -17,15 +17,38 @@
 
 #define PCF8574_LIB_VERSION "0.2.4"
 
-#define PCF8574_OK          0x00
-#define PCF8574_PIN_ERROR   0x81
-#define PCF8574_I2C_ERROR   0x82
+#define PCF8574_OK          			      0x00
+#define PCF8574_INTERFACE_NOT_AVAILABLE 0x80
+#define PCF8574_PIN_ERROR   			      0x81
+#define PCF8574_I2C_ERROR   			      0x82
 
+
+enum{
+	PCF8574_INTERFACE_WIRE  = (uint8_t)0,
+#ifdef WIRE_IMPLEMENT_WIRE1
+	PCF8574_INTERFACE_WIRE1 = (uint8_t)1,
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE2
+	PCF8574_INTERFACE_WIRE2 = (uint8_t)2,
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE3
+	PCF8574_INTERFACE_WIRE3 = (uint8_t)3,
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE4
+	PCF8574_INTERFACE_WIRE4 = (uint8_t)4,
+#endif
+#ifdef WIRE_IMPLEMENT_WIRE5
+	PCF8574_INTERFACE_WIRE5 = (uint8_t)5,
+#endif
+	
+	/* ============================ */
+	PCF8574_INTERFACE_NO_OF_INTERFACES,
+};
 
 class PCF8574
 {
 public:
-  explicit PCF8574(const uint8_t deviceAddress);
+  explicit PCF8574(uint8_t interfaceIndex, const uint8_t deviceAddress);
 
 #if defined (ESP8266) || defined(ESP32)
   void   begin(uint8_t sda, uint8_t scl, uint8_t val = 0xFF);
@@ -58,6 +81,7 @@ public:
   int lastError();
 
 private:
+  uint8_t _interfaceIndex;
   uint8_t _address;
   uint8_t _dataIn;
   uint8_t _dataOut;
