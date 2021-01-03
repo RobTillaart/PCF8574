@@ -24,11 +24,12 @@ playfull but still are useful.
 
 ## Interface
 
-- **PCF8574(deviceAddress)** Constructor with device address as parameter.
+- **PCF8574(deviceAddress, TwoWire \*wire = &Wire)** Constructor with device address, and optional the Wire interface as parameter.
 - **begin(val = 0xFF)** set the initial value for the pins and masks.
 - **begin(sda, scl, val = 0xFF)** idem, for the ESP32 where one can choose the I2C pins
 What needs to be added in the future is a parameter to choose another Wire interface
 as some processors have multiple hardware Wire interfaces.
+- **isConnected()** checks if the address is visable on the I2C bus
 - **read8()** reads all 8 pins at once. This one does the actual reading.
 - **read(pin)** reads a single pin; pin = 0..7
 - **value()** returns the last read inputs again, as this information is buffered 
