@@ -8,7 +8,7 @@
 //          http://forum.arduino.cc/index.php?topic=184800
 //
 //  HISTORY:
-//  0.3.0   2121-01-03  multiWire support
+//  0.3.0   2121-01-03  multiWire support - inspirated by mattbue - issue #14
 //  0.2.4   2020-12-17  fix #6 tag problem 0.2.3
 //  0.2.3   2020-12-14  fix #6 readButton8 ambiguity
 //  0.2.2   2020-12-07  add Arduino-ci + start unit test + _wire->h in PCF8574.h
