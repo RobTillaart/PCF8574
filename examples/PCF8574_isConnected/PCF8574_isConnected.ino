@@ -1,7 +1,7 @@
 //
 //    FILE: PCF8574_isConnected.ino
 //  AUTHOR: Rob Tillaart
-//    DATE: 2016-04-30
+//    DATE: 2021-01-03
 //
 // PUPROSE: demo 
 //
@@ -26,8 +26,10 @@ void setup()
   {
     Serial.println("=> not connected");
   }
-
-  
+  else
+  {
+    Serial.println("=> connected!!");
+  }
 }
 
 void loop()
