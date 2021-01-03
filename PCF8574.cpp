@@ -73,7 +73,7 @@ bool PCF8574::begin(uint8_t sda, uint8_t scl, uint8_t val)
 #endif
 
 
-void PCF8574::begin(uint8_t val)
+bool PCF8574::begin(uint8_t val)
 {
   _wire->begin();
   if (! isConnected()) return false;
