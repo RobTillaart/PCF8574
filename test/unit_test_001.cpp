@@ -10,17 +10,32 @@
 
 // supported assertions
 // ----------------------------
-// assertEqual(expected, actual)
-// assertNotEqual(expected, actual)
-// assertLess(expected, actual)
-// assertMore(expected, actual)
-// assertLessOrEqual(expected, actual)
-// assertMoreOrEqual(expected, actual)
-// assertTrue(actual)
-// assertFalse(actual)
-// assertNull(actual)
+// assertEqual(expected, actual);               // a == b
+// assertNotEqual(unwanted, actual);            // a != b
+// assertComparativeEquivalent(expected, actual);    // abs(a - b) == 0 or (!(a > b) && !(a < b))
+// assertComparativeNotEquivalent(unwanted, actual); // abs(a - b) > 0  or ((a > b) || (a < b))
+// assertLess(upperBound, actual);              // a < b
+// assertMore(lowerBound, actual);              // a > b
+// assertLessOrEqual(upperBound, actual);       // a <= b
+// assertMoreOrEqual(lowerBound, actual);       // a >= b
+// assertTrue(actual);
+// assertFalse(actual);
+// assertNull(actual);
+
+// // special cases for floats
+// assertEqualFloat(expected, actual, epsilon);    // fabs(a - b) <= epsilon
+// assertNotEqualFloat(unwanted, actual, epsilon); // fabs(a - b) >= epsilon
+// assertInfinity(actual);                         // isinf(a)
+// assertNotInfinity(actual);                      // !isinf(a)
+// assertNAN(arg);                                 // isnan(a)
+// assertNotNAN(arg);                              // !isnan(a)
 
 #include <ArduinoUnitTests.h>
+
+#define assertEqualFloat(arg1, arg2, arg3)  assertOp("assertEqualFloat", "expected", fabs(arg1 - arg2), compareLessOrEqual, "<=", "actual", arg3)
+// #define assertEqualINF(arg)  assertOp("assertEqualINF", "expected", INFINITY, compareEqual, "==", "actual", arg)
+// #define assertEqualNAN(arg)  assertOp("assertEqualNAN", "expected", true, compareEqual, "==", "actual", isnan(arg))
+
 
 #include "Arduino.h"
 #include "PCF8574.h"
@@ -38,36 +53,42 @@ unittest_teardown()
 
 unittest(test_begin)
 {
+  fprintf(stderr, "VERSION: %s\n", PCF8574_LIB_VERSION);
+
   PCF8574 PCF(0x38);
 
   PCF.begin();
-  int r = PCF.read8();
-  assertEqual(0, r);
 
-  int expect = PCF8574_I2C_ERROR;
-  assertEqual(expect, PCF.lastError());
+  int readValue = PCF.read8();
+  assertEqual(0, readValue);
+
+  int I2Cerror = PCF8574_I2C_ERROR;
+  assertEqual(I2Cerror, PCF.lastError());
 }
+
 
 unittest(test_read)
 {
   PCF8574 PCF(0x38);
-  int r;
+  int readValue;
 
   PCF.begin();
   for (int i = 0; i < 8; i++)
   {
-    r = PCF.read(i);
-    assertEqual(0, r);
+    fprintf(stderr, "line %d\n", i);
+    readValue = PCF.read(i);
+    assertEqual(0, readValue);
 
-    int expect = PCF8574_I2C_ERROR;
-    assertEqual(expect, PCF.lastError());
+    int I2Cerror = PCF8574_I2C_ERROR;
+    assertEqual(I2Cerror, PCF.lastError());
   }
-  printf("test");
-  r = PCF.read(8);
-  assertEqual(0, r);
-  int expect = PCF8574_PIN_ERROR;
-  assertEqual(expect, PCF.lastError());
+  fprintf(stderr, "test PCF8575_PIN_ERROR\n");
+  readValue = PCF.read(8);
+  assertEqual(0, readValue);
+  int PINerror = PCF8574_PIN_ERROR;
+  assertEqual(PINerror, PCF.lastError());
 }
+
 
 unittest_main()
 
