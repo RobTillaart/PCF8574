@@ -9,17 +9,23 @@ Arduino library for PCF8574 - 8 channel I2C IO expander
 
 ## Description
 
+Related to the PCF8575 16 channel IO expander library  https://github.com/RobTillaart/PCF8575
+
 This library gives easy control over the 8 pins of a PCF8574 and PCF8574A chip.
 These chips are identical in behavior although there are two distinct address ranges.
 
-| TYPE     | ADDRESS-RANGE |
-|:----|:----:|
-|PCF8574   | 0x20 to 0x27 |
+| TYPE     | ADDRESS-RANGE | notes |
+|:----|:----:|:----:|
+|PCF8574   | 0x20 to 0x27 | same range as PCF8575 !! |
 |PCF8574A  | 0x38 to 0x3F |
 
+So you can connect up to 16 PCF8574 on one I2C bus, giving access 
+to 16 x 8 = 128 IO lines. To maximize IO lines combine 8 x PCF8575 + 8 x PCF8574A giving
+128 + 64 = 192 IO lines. Be sure to have a well dimensioned power supply.
+
 The library allows to read and write both single pins or 8 pins at once.
-Furthermore some additional functions are implemented that are a little more
-playfull but still are useful.
+Furthermore some additional functions are implemented that are 
+playfull but useful.
 
 
 ## Interface
