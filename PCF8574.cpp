@@ -2,12 +2,13 @@
 //    FILE: PCF8574.cpp
 //  AUTHOR: Rob Tillaart
 //    DATE: 02-febr-2013
-// VERSION: 0.3.0
+// VERSION: 0.3.1
 // PURPOSE: Arduino library for PCF8574 - 8 channel I2C IO expander
 //     URL: https://github.com/RobTillaart/PCF8574
 //          http://forum.arduino.cc/index.php?topic=184800
 //
 //  HISTORY:
+//  0.3.1   2021-04-23  Fix for platformIO compatibility
 //  0.3.0   2021-01-03  multiWire support - inspirated by mattbue - issue #14
 //  0.2.4   2020-12-17  fix #6 tag problem 0.2.3
 //  0.2.3   2020-12-14  fix #6 readButton8 ambiguity
