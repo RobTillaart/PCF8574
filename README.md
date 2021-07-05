@@ -40,47 +40,49 @@ the include of "pcf8574.h" to overrule the default value used with the
 
 - **PCF8574(deviceAddress, TwoWire \*wire = &Wire)** Constructor with device address, 
 and optional the Wire interface as parameter.
-- **begin(val = PCF8574_INITIAL_VALUE)** set the initial value for the pins and masks.
-- **begin(sda, scl, val = PCF8574_INITIAL_VALUE)** idem, for the ESP32 where one can choose the I2C pins.
-- **isConnected()** checks if the address is visible on the I2C bus
+- **bool begin(val = PCF8574_INITIAL_VALUE)** set the initial value for the pins and masks.
+- **bool begin(sda, scl, val = PCF8574_INITIAL_VALUE)** idem, for the ESP32 where one can choose the I2C pins.
+- **bool isConnected()** checks if the address set in the constructor or by **setAddress()** is visible on the I2C bus.
+- **bool setAddress(const uint8_t deviceAddress)** sets the device address after construction. Can be used to switch between PCF8574 modules runtime. Note this corrupts internal buffered values, so one might need to call **read8()** and/or **write8()**. Returns true if address can be found on I2C bus.
+- **uint8_t getAddress()** returns the device address.
 
 
 ### Read and Write
 
-- **read8()** reads all 8 pins at once. This one does the actual reading.
-- **read(pin)** reads a single pin; pin = 0..7
-- **value()** returns the last read inputs again, as this information is buffered 
+- **uint8_t read8()** reads all 8 pins at once. This one does the actual reading.
+- **uint8_t read(uint8_t pin)** reads a single pin; pin = 0..7
+- **uint8_t value()** returns the last read inputs again, as this information is buffered 
 in the class this is faster than reread the pins.
-- **write8(value)** writes all 8 pins at once. This one does the actual reading.
-- **write(pin, value)** writes a single pin; pin = 0..7; value is HIGH(1) or LOW (0)
+- **void write8(const uint8_t value)** writes all 8 pins at once. This one does the actual reading.
+- **uint8_t write(const uint8_t pin, const uint8_t value)** writes a single pin; pin = 0..7; value is HIGH(1) or LOW (0)
 - **valueOut()** returns the last written data.
 
 
 ### Button
 
-- **setButtonMask(mask)** 
-- **readButton8()**
-- **readButton8(mask)**
-- **readButton(pin)**
+- **void setButtonMask(const uint8_t mask)** 
+- **uint8_t readButton8()**
+- **uint8_t readButton8(const uint8_t mask)**
+- **uint8_t readButton(const uint8_t pin)**
 
 
 ### Special
 
-- **toggle(pin)** toggles a single pin
-- **toggleMask(mask)** toggles a selection of pins, 
+- **void toggle(const uint8_t pin)** toggles a single pin
+- **void toggleMask(const uint8_t mask = 0xFF)** toggles a selection of pins, 
 if you want to invert all pins use 0xFF (default value).
-- **shiftRight(n = 1)** shifts output channels n pins (default 1) pins right (e.g. leds ). 
+- **void shiftRight(const uint8_t n = 1)** shifts output channels n pins (default 1) pins right (e.g. leds ). 
 Fills the higher lines with zero's.
-- **shiftLeft(n = 1)**  shifts output channels n pins (default 1) pins left (e.g. leds ).
+- **void shiftLeft(const uint8_t n = 1)**  shifts output channels n pins (default 1) pins left (e.g. leds ).
 Fills the lower lines with zero's.
-- **rotateRight(n = 1)** rotates output channels to right, moving lowest line to highest line.
-- **rotateLeft(n = 1)** rotates output channels to left, moving highest line to lowest line.
-- **reverse()** revers the "bit pattern" of the lines, high to low and vice versa.
+- **void rotateRight(const uint8_t n = 1)** rotates output channels to right, moving lowest line to highest line.
+- **void rotateLeft(const uint8_t n = 1)** rotates output channels to left, moving highest line to lowest line.
+- **void reverse()** revers the "bit pattern" of the lines, high to low and vice versa.
 
 
 ### Misc
 
-- **lastError()** returns the last error from the lib. (see .h file)
+- **int lastError()** returns the last error from the lib. (see .h file)
 
 
 ## Error codes
