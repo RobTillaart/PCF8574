@@ -94,10 +94,10 @@ unittest(test_address)
   // incorrect in test environment.
   assertTrue(PCF.begin());
   assertTrue(PCF.isConnected());
-  assertEqual(0x38. PCF.getAddress());
+  assertEqual(0x38, PCF.getAddress());
 
   assertTrue(PCF.setAddress(0x20));
-  assertEqual(0x20. PCF.getAddress());
+  assertEqual(0x20, PCF.getAddress());
 }
 
 
