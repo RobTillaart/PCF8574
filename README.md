@@ -1,7 +1,10 @@
 
 [![Arduino CI](https://github.com/RobTillaart/PCF8574/workflows/Arduino%20CI/badge.svg)](https://github.com/marketplace/actions/arduino_ci)
+[![Arduino-lint](https://github.com/RobTillaart/PCF8574/actions/workflows/arduino-lint.yml/badge.svg)](https://github.com/RobTillaart/PCF8574/actions/workflows/arduino-lint.yml)
+[![JSON check](https://github.com/RobTillaart/PCF8574/actions/workflows/jsoncheck.yml/badge.svg)](https://github.com/RobTillaart/PCF8574/actions/workflows/jsoncheck.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/RobTillaart/PCF8574/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/RobTillaart/PCF8574.svg?maxAge=3600)](https://github.com/RobTillaart/PCF8574/releases)
+
 
 # PCF8574
 
@@ -40,8 +43,8 @@ the include of "pcf8574.h" to overrule the default value used with the
 
 - **PCF8574(deviceAddress, TwoWire \*wire = &Wire)** Constructor with device address, 
 and optional the Wire interface as parameter.
-- **bool begin(val = PCF8574_INITIAL_VALUE)** set the initial value for the pins and masks.
-- **bool begin(sda, scl, val = PCF8574_INITIAL_VALUE)** idem, for the ESP32 where one can choose the I2C pins.
+- **bool begin(uint8_t val = PCF8574_INITIAL_VALUE)** set the initial value for the pins and masks.
+- **bool begin(uint8_t sda, uint8_t scl, uint8_t val = PCF8574_INITIAL_VALUE)** idem, for the ESP32 where one can choose the I2C pins.
 - **bool isConnected()** checks if the address set in the constructor or by **setAddress()** is visible on the I2C bus.
 - **bool setAddress(const uint8_t deviceAddress)** sets the device address after construction. Can be used to switch between PCF8574 modules runtime. Note this corrupts internal buffered values, so one might need to call **read8()** and/or **write8()**. Returns true if address can be found on I2C bus.
 - **uint8_t getAddress()** returns the device address.
@@ -77,7 +80,7 @@ Fills the higher lines with zero's.
 Fills the lower lines with zero's.
 - **void rotateRight(const uint8_t n = 1)** rotates output channels to right, moving lowest line to highest line.
 - **void rotateLeft(const uint8_t n = 1)** rotates output channels to left, moving highest line to lowest line.
-- **void reverse()** revers the "bit pattern" of the lines, high to low and vice versa.
+- **void reverse()** reverse the "bit pattern" of the lines, high to low and vice versa.
 
 
 ### Misc
@@ -97,3 +100,8 @@ Fills the lower lines with zero's.
 ## Operation
 
 See examples
+
+
+## Future
+
+- 
