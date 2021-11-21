@@ -18,5 +18,6 @@
   "version": "0.3.2",
   "license": "MIT",
   "frameworks": "arduino",
-  "platforms": "*"
+  "platforms": "*",
+  "headers": "PCF8574.h"
 }
