@@ -8,6 +8,7 @@
 //          http://forum.arduino.cc/index.php?topic=184800
 //
 //  HISTORY:
+//  
 //  0.3.2   2021-07-04  fix #25 add setAddress()
 //  0.3.1   2021-04-23  Fix for platformIO compatibility
 //  0.3.0   2021-01-03  multiWire support - inspirated by mattbue - issue #14
@@ -237,7 +238,7 @@ uint8_t PCF8574::readButton8(const uint8_t mask)
   PCF8574::write8(mask | _dataOut);  // read only selected lines
   PCF8574::read8();
   PCF8574::write8(temp);             // restore
-  return _dataIn;
+  return _dataIn;                    // should this be masked too?
 }
 
 

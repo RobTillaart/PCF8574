@@ -39,24 +39,30 @@ public:
   bool    begin(uint8_t val = PCF8574_INITIAL_VALUE);
   bool    isConnected();
 
+
   // note: setting the address corrupt internal buffer values
   // a read8() / write8() call updates them.
   bool    setAddress(const uint8_t deviceAddress);
   uint8_t getAddress();  
 
+
   uint8_t read8();
   uint8_t read(const uint8_t pin);
   uint8_t value() const { return _dataIn; };
 
+
   void    write8(const uint8_t value);
   void    write(const uint8_t pin, const uint8_t value);
   uint8_t valueOut() const { return _dataOut; }
+
 
   //added 0.1.07/08 Septillion
   inline uint8_t readButton8()  { return PCF8574::readButton8(_buttonMask); }
   uint8_t        readButton8(const uint8_t mask);
   uint8_t        readButton(const uint8_t pin);
   inline void    setButtonMask(const uint8_t mask) { _buttonMask = mask; };
+  uint8_t        getButtonMask() { return _buttonMask; };
+
 
   // rotate, shift, toggle, reverse expect all lines are output
   void    toggle(const uint8_t pin);
@@ -67,7 +73,9 @@ public:
   void    rotateLeft(const uint8_t n = 1);
   void    reverse();
 
+
   int     lastError();
+
 
 private:
   uint8_t _address;
