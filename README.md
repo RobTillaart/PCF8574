@@ -28,15 +28,13 @@ to 16 x 8 = 128 IO lines. To maximize IO lines combine 8 x PCF8575 + 8 x PCF8574
 128 + 64 = 192 IO lines. Be sure to have a well dimensioned power supply.
 
 The library allows to read and write both single pins or 8 pins at once.
-Furthermore some additional functions are implemented that are 
-playful but useful.
+Furthermore some additional functions are implemented that are playful but useful.
 
 
 ## Interface
 
 **PCF8574_INITIAL_VALUE** is a define that can be set compile time or before
-the include of "pcf8574.h" to overrule the default value used with the 
-**begin()** call.
+the include of "pcf8574.h" to overrule the default value used with the **begin()** call.
 
 
 ### Constructor
@@ -58,8 +56,9 @@ so one might need to call **read8()** and/or **write8()**. Returns true if addre
 - **uint8_t read(uint8_t pin)** reads a single pin; pin = 0..7
 - **uint8_t value()** returns the last read inputs again, as this information is buffered 
 in the class this is faster than reread the pins.
-- **void write8(const uint8_t value)** writes all 8 pins at once. This one does the actual reading.
-- **uint8_t write(const uint8_t pin, const uint8_t value)** writes a single pin; pin = 0..7; value is HIGH(1) or LOW (0)
+- **void write8(const uint8_t value)** writes all 8 pins at once. This one does the actual writing.
+- **uint8_t write(const uint8_t pin, const uint8_t value)** writes a single pin; pin = 0..7; 
+value is HIGH(1) or LOW (0)
 - **valueOut()** returns the last written data.
 
 
@@ -112,8 +111,11 @@ Fills the lower lines with zero's.
 
 See examples
 
+It is advised to use pull-up or pull-down resistors so the lines have a defined state at startup.
+
 
 ## Future
 
 - update documentation
-- 
+- link to related libraries.
+
