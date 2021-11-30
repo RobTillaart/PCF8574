@@ -30,6 +30,8 @@ uint8_t lastpos[4] = {0, 0, 0, 0};
 int32_t encoder[4] = {0, 0, 0, 0};
 volatile bool flag = false;
 
+
+// IRQ routine
 void moved()
 {
   flag = true;
@@ -50,7 +52,8 @@ void setup()
   Wire.begin();
   if (decoder.begin() == false)
   {
-    Serial.println("\nERROR: cannot communicate to keypad.\nPlease reboot / adjust address.\n");
+    Serial.println("\nERROR: cannot communicate to PCF8574.");
+    Serial.println("Please reboot / adjust address.\n");
     while (1);
   }
   Wire.setClock(600000);
