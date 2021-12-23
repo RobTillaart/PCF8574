@@ -3,7 +3,6 @@
 //  AUTHOR: Rob Tillaart
 //    DATE: 2021-01-03
 // PUPROSE: demo isConnected function
-//
 
 
 #include "PCF8574.h"
@@ -40,3 +39,4 @@ void loop()
 
 
 // -- END OF FILE --
+

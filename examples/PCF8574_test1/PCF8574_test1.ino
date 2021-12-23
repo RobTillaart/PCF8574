@@ -1,9 +1,9 @@
 //
-//    FILE: pcf8574_test.ino
+//    FILE: PCF8574_test.ino
 //  AUTHOR: Rob Tillaart
 //    DATE: 27-08-2013
 // PUPROSE: demo
-//
+
 
 #include "PCF8574.h"
 

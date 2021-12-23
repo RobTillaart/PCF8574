@@ -3,7 +3,6 @@
 //  AUTHOR: Rob Tillaart
 //    DATE: 2016-04-30
 // PUPROSE: demo rotateLeft, -Right and toggleMask
-//
 
 
 #include "PCF8574.h"
