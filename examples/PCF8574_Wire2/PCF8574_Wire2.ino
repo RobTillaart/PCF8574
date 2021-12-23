@@ -2,8 +2,7 @@
 //    FILE: PCF8574_Wire2.ino
 //  AUTHOR: Rob Tillaart
 //    DATE: 2016-04-30
-// PUPROSE: demo 
-//
+// PUPROSE: demo
 
 
 #include "PCF8574.h"

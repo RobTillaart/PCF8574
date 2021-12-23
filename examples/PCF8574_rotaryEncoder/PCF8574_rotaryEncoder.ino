@@ -2,9 +2,8 @@
 //    FILE: PCF8574_rotaryEncoder.ino
 //  AUTHOR: Rob Tillaart
 //    DATE: 2021-05-08
-//
 // PUPROSE: demo PCF8574 as rotary encoder reader.
-
+//
 //
 //  RotaryEncoder    PCF8574      UNO
 //  --------------------------------------
@@ -132,3 +131,4 @@ void updateRotaryDecoder()
 
 
 // -- END OF FILE --
+
