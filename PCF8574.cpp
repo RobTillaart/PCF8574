@@ -61,7 +61,7 @@ PCF8574::PCF8574(const uint8_t deviceAddress, TwoWire *wire)
 
 
 #if defined (ESP8266) || defined(ESP32)
-bool PCF8574::begin(uint8_t dataPin, uint8_t clockPin, uint8_t value)
+bool PCF8574::begin(int dataPin, int clockPin, uint8_t value)
 {
   _wire      = &Wire;
   if ((dataPin < 255) && (clockPin < 255))
