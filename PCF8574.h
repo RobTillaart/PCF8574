@@ -8,9 +8,6 @@
 //     URL: https://github.com/RobTillaart/PCF8574
 //          http://forum.arduino.cc/index.php?topic=184800
 //
-// HISTORY:
-// see PCF8574.cpp file
-//
 
 
 #include "Arduino.h"
@@ -57,11 +54,11 @@ public:
 
 
   //added 0.1.07/08 Septillion
-  inline uint8_t readButton8()  { return PCF8574::readButton8(_buttonMask); }
-  uint8_t        readButton8(const uint8_t mask);
-  uint8_t        readButton(const uint8_t pin);
-  inline void    setButtonMask(const uint8_t mask) { _buttonMask = mask; };
-  uint8_t        getButtonMask() { return _buttonMask; };
+  uint8_t readButton8()  { return PCF8574::readButton8(_buttonMask); }
+  uint8_t readButton8(const uint8_t mask);
+  uint8_t readButton(const uint8_t pin);
+  void    setButtonMask(const uint8_t mask) { _buttonMask = mask; };
+  uint8_t getButtonMask() { return _buttonMask; };
 
 
   // rotate, shift, toggle, reverse expect all lines are output
