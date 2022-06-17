@@ -93,6 +93,20 @@ Fills the lower lines with zero's.
 - **void reverse()** reverse the "bit pattern" of the lines, swapping pin 7 with 0, 6 with 1, 5 with 2 and 4 with 3.
 
 
+### Select
+
+Some convenience wrappers.
+
+- **void select(const uint8_t pin)** sets a single pin to HIGH, all others are set to LOW.
+If pin > 7 all pins are set to LOW.
+Can be used to select one of n devices.
+- **void selectN(const uint8_t pin)** sets pins 0..pin to HIGH, all others are set to LOW.
+If pin > 7 all pins are set to LOW.
+This can typical be used to implement a VU meter.
+- **void selectNone()** sets all pins to LOW.
+- **void selectAll()** sets all pins to HIGH.
+
+
 ### Misc
 
 - **int lastError()** returns the last error from the lib. (see .h file)
