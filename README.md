@@ -34,9 +34,18 @@ Furthermore some additional functions are implemented that are playful and usefu
 
 ## I2C Clock
 
-TODO
-
+Tested on UNO with **PCF8574_performance** showed that the PCF8574 still works at 500 KHz and failed at 600 KHz.
+These values are outside the specs of the datasheet so they are not recommended.
 However when performance is needed you can try to overclock the chip. 
+
+| clock speed |  Read  |  Write  |  Notes            |
+|:-----------:|:------:|:-------:|:------------------|
+|  100000     |  236   |   240   | spec datasheet    |
+|  200000     |  132   |   140   |
+|  300000     |  104   |   108   |
+|  400000     |   96   |    96   | max advised speed |
+|  500000     |   92   |    92   | not recommended   |
+|  600000     | crash  |  crash  | 
 
 
 ## Interface
@@ -138,6 +147,6 @@ It is advised to use pull-up or pull-down resistors so the lines have a defined 
 
 ## Future
 
-- I2C clock performance
+- 
 
 
