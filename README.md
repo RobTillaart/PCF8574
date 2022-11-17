@@ -34,9 +34,11 @@ Furthermore some additional functions are implemented that are playful and usefu
 
 #### Interrupts
 
-The PCF8574 has an interrupt output line (INT) to notice a MCU that one of the input lines has changed.
+The PCF8574 has an interrupt output line (INT) to notify an MCU that one of the input lines has changed.
 This can be used to prevent active polling of the PCF8574, which can be more efficient.
-The library does not support this internally.
+
+The library cannot handle the PCF8574 interrupts as it has no code for it. 
+The user should catch the interrupt in his own code and can use the library to see which line has changed.
 
 There are two examples to show how interrupts can be used:
 - PCF8574_interrupt.ino
