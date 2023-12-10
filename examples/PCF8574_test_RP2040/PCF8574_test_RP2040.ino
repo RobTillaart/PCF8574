@@ -1,7 +1,7 @@
 //
-//    FILE: PCF8574_test.ino
+//    FILE: PCF8574_test_RP2040.ino
 //  AUTHOR: Rob Tillaart
-//    DATE: 7-febr-2013
+//    DATE: 2023-12-10
 // PURPOSE: test PCF8574 library
 
 
@@ -17,6 +17,9 @@ void setup()
   Serial.print("PCF8574_LIB_VERSION:\t");
   Serial.println(PCF8574_LIB_VERSION);
 
+  //  adjust pins if needed
+  Wire.setSDA(22);
+  Wire.setSCL(23);
   Wire.begin();
 
   PCF_01.begin();

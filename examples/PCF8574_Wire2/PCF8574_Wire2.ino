@@ -7,7 +7,7 @@
 
 #include "PCF8574.h"
 
-// adjust addresses if needed
+//  adjust addresses if needed
 PCF8574 PCF(0x39, &Wire2);
 
 
@@ -17,6 +17,8 @@ void setup()
   Serial.println(__FILE__);
   Serial.print("PCF8574_LIB_VERSION:\t");
   Serial.println(PCF8574_LIB_VERSION);
+
+  Wire2.begin();
 
   if (!PCF.begin())
   {
@@ -75,5 +77,5 @@ void doToggle()
 }
 
 
-// -- END OF FILE --
+//  -- END OF FILE --
 

@@ -1,5 +1,5 @@
 //
-//    FILE: PCF8574_test.ino
+//    FILE: PCF8574_test_ESP32.ino
 //  AUTHOR: Rob Tillaart
 //    DATE: 7-febr-2013
 // PURPOSE: test PCF8574 library
@@ -19,7 +19,8 @@ void setup()
 
   Wire.begin();
 
-  PCF_01.begin();
+  //  adjust pins if needed
+  PCF_01.begin(20, 21);
 
   int x = PCF_01.read8();
   Serial.print("Read ");
