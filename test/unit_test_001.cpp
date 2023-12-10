@@ -94,7 +94,7 @@ unittest(test_address)
 {
   PCF8574 PCF(0x38);
 
-  Wire.begin
+  Wire.begin();
 
   //  incorrect in test environment.
   assertTrue(PCF.begin());

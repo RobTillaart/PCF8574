@@ -2,7 +2,7 @@
 //    FILE: PCF8574_test.ino
 //  AUTHOR: Rob Tillaart
 //    DATE: 27-08-2013
-// PUPROSE: demo
+// PURPOSE: demo
 
 
 #include "PCF8574.h"

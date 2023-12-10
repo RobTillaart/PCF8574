@@ -17,10 +17,10 @@ void setup()
   Serial.print("PCF8574_LIB_VERSION:\t");
   Serial.println(PCF8574_LIB_VERSION);
 
-  Wire.begin();
-
   //  adjust pins if needed
-  PCF_01.begin(20, 21);
+  Wire.begin(20, 21);
+
+  PCF_01.begin();
 
   int x = PCF_01.read8();
   Serial.print("Read ");

@@ -2,7 +2,7 @@
 //    FILE: pcf8574_test2.ino
 //  AUTHOR: Rob Tillaart
 //    DATE: 2016-04-30
-// PUPROSE: demo rotateLeft, rotateRight and toggleMask
+// PURPOSE: demo rotateLeft, rotateRight and toggleMask
 
 
 #include "PCF8574.h"
