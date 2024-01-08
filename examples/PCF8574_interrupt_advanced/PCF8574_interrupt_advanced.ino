@@ -5,12 +5,12 @@
 // PURPOSE: test PCF8574 library
 //     URL: https://github.com/RobTillaart/PCF8574
 //
-// TEST SETUP
+//  TEST SETUP
 //   Connect INT pin of the PCF8574 to UNO pin 2
 //
 //   (from figure 4 datasheet
 //   Place a pull up resistor 4K7 between pin and 5V
-//   Place a capacitor 10-400pF between pin and GND
+//   Place a capacitor 10-400 pF between pin and GND
 
 
 #include "PCF8574.h"
@@ -75,7 +75,7 @@ void loop()
     Serial.print('\t');
     Serial.println(x, HEX);
   }
-  
+
   //  simulate doing other things here.
   //  uses to a large delay to miss IRQ's on purpose.
   delay(1000);
@@ -83,3 +83,4 @@ void loop()
 
 
 //  -- END OF FILE --
+
