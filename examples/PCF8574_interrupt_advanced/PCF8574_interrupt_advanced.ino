@@ -1,7 +1,7 @@
 //
-//    FILE: PCF8574_interrupt.ino
+//    FILE: PCF8574_interrupt_advanced.ino
 //  AUTHOR: Rob Tillaart
-//    DATE: 2020-12-07
+//    DATE: 2024-01-08
 // PURPOSE: test PCF8574 library
 //     URL: https://github.com/RobTillaart/PCF8574
 //
@@ -24,11 +24,11 @@ PCF8574 PCF(0x38);
 //
 const int IRQPIN = 2;
 
-volatile bool flag = false;
+volatile uint8_t interruptCount = 0;
 
 void pcf_irq()
 {
-  flag = true;
+  interruptCount++;
 }
 
 
@@ -42,7 +42,7 @@ void setup()
   Serial.println(__FILE__);
   Serial.print("PCF8574_LIB_VERSION: ");
   Serial.println(PCF8574_LIB_VERSION);
-  
+
   Wire.begin();
   PCF.begin();
 
@@ -54,9 +54,20 @@ void setup()
 void loop()
 {
   uint32_t now = millis();
-  if (flag)
+
+  //  make a local copy of the counter.
+  noInterrupts();
+  uint8_t irq_count = interruptCount;
+  interruptCount = 0;
+  interrupts();
+
+  if (irq_count > 0)
   {
-    flag = false;
+    if (irq_count > 1)
+    {
+      Serial.print("IRQ missed: ");
+      Serial.println(irq_count - 1);  //  as last will be handled
+    }
     int x = PCF.read8();
     Serial.print("READ:\t");
     Serial.print('\t');
@@ -64,10 +75,11 @@ void loop()
     Serial.print('\t');
     Serial.println(x, HEX);
   }
-  //  do other things here
-  delay(10);
+  
+  //  simulate doing other things here.
+  //  uses to a large delay to miss IRQ's on purpose.
+  delay(1000);
 }
 
 
 //  -- END OF FILE --
-

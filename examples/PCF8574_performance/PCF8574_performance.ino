@@ -3,6 +3,7 @@
 //  AUTHOR: Rob Tillaart
 //    DATE: 2021-01-24
 // PURPOSE: test PCF8574 library at different I2C speeds.
+//     URL: https://github.com/RobTillaart/PCF8574
 
 
 #include "PCF8574.h"
@@ -23,23 +24,31 @@ void setup()
 
   PCF.begin();
   Serial.println(PCF.isConnected());
+  delay(100);  //  time to flush Serial 
+
 
   for (long clk = 100000; clk < 800000; clk += 100000)
   {
-    Serial.println(clk);
+    //  setup and measure
     Wire.setClock(clk);
     start = micros();
     int x = PCF.read8();
     stop = micros();
+
+    //  output results
+    Serial.println(clk);
     Serial.print("Read:\t");
     Serial.print(stop - start);
     Serial.print("\t");
     Serial.println(x);             //  keep build CI compiler happy
     delay(1000);
 
+    //  measure
     start = micros();
     PCF.write8(0xFF);
     stop = micros();
+
+    //  output results
     Serial.print("Write:\t ");
     Serial.println(stop - start);
     delay(1000);
