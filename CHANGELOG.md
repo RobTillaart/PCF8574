@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.4.1] - 2023-09-23
-- Update readme with advanced interrupts insigts
+- Update readme with advanced interrupts insights
   - kudos to ddowling for testing.
   - add example
 - fix URL examples

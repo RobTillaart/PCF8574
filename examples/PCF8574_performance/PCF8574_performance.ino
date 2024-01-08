@@ -12,6 +12,8 @@ PCF8574 PCF(0x38);
 
 uint32_t start, stop;
 
+volatile uint8_t x;
+
 
 void setup()
 {
@@ -27,12 +29,12 @@ void setup()
   delay(100);  //  time to flush Serial 
 
 
-  for (long clk = 100000; clk < 800000; clk += 100000)
+  for (long clk = 100000; clk < 800000; clk += 50000)
   {
     //  setup and measure
     Wire.setClock(clk);
     start = micros();
-    int x = PCF.read8();
+    x = PCF.read8();
     stop = micros();
 
     //  output results
@@ -62,3 +64,4 @@ void loop()
 
 
 //  -- END OF FILE --
+

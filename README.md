@@ -11,7 +11,7 @@
 
 # PCF8574
 
-Arduino library for PCF8574 - 8 channel I2C IO expander
+Arduino library for PCF8574 - 8 channel I2C IO expander.
 
 
 ## Description
@@ -53,8 +53,8 @@ or in the write mode at the acknowledge bit after the high-to-low transition of 
 So there are three scenarios how the INT is reset.
 
 1. pins revert to original state (lesser known).
-2. read from PCF8574 (well known)
-3. write to PCF8574 (well known)
+2. read from the device (well known)
+3. write to the device (well known)
 
 This implies that polling the PCF8574 can miss an INT in scenario 1. (see #48)
 In practice if you have faster polling than your signals changes this would not
@@ -229,7 +229,8 @@ It is advised to use pull-up or pull-down resistors so the lines have a defined 
 
 #### Must
 
-- keep in sync with PCF8575
+- update documentation.
+- keep in sync with PCF8575  (as far as meaningful)
 
 #### Should
 
@@ -248,4 +249,5 @@ Improve the quality of the libraries by providing issues and Pull Requests, or
 donate through PayPal or GitHub sponsors.
 
 Thank you,
+
 
