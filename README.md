@@ -171,7 +171,7 @@ during program execution.
 - **uint8_t readButton8()** use the mask set by setButtonMask to select specific input pins.
 - **uint8_t readButton8(const uint8_t mask)** use a specific mask to select specific input pins.
 Note this can be a subset of the pins set with **setButtonMask()** if one wants to process not all.
-- **uint8_t readButton(const uint8_t pin)** read a singe input pin.
+- **uint8_t readButton(const uint8_t pin)** read a single input pin.
 
 Background - https://github.com/RobTillaart/Arduino/issues/38
 
