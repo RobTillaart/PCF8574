@@ -1,0 +1,103 @@
+\begin{theindex}
+
+  \item {begin}
+    \subitem {PCF8574}, \hyperpage{14}
+
+  \indexspace
+
+  \item {getAddress}
+    \subitem {PCF8574}, \hyperpage{15}
+  \item {getButtonMask}
+    \subitem {PCF8574}, \hyperpage{15}
+
+  \indexspace
+
+  \item {isConnected}
+    \subitem {PCF8574}, \hyperpage{15}
+
+  \indexspace
+
+  \item {lastError}
+    \subitem {PCF8574}, \hyperpage{15}
+
+  \indexspace
+
+  \item {PCF8574}, \hyperpage{13}
+    \subitem {begin}, \hyperpage{14}
+    \subitem {getAddress}, \hyperpage{15}
+    \subitem {getButtonMask}, \hyperpage{15}
+    \subitem {isConnected}, \hyperpage{15}
+    \subitem {lastError}, \hyperpage{15}
+    \subitem {PCF8574}, \hyperpage{14}
+    \subitem {read}, \hyperpage{15}
+    \subitem {read8}, \hyperpage{16}
+    \subitem {readButton}, \hyperpage{16}
+    \subitem {readButton8}, \hyperpage{16}
+    \subitem {rotateLeft}, \hyperpage{16}
+    \subitem {rotateRight}, \hyperpage{17}
+    \subitem {select}, \hyperpage{17}
+    \subitem {selectN}, \hyperpage{17}
+    \subitem {setAddress}, \hyperpage{17}
+    \subitem {setButtonMask}, \hyperpage{18}
+    \subitem {shiftLeft}, \hyperpage{18}
+    \subitem {shiftRight}, \hyperpage{18}
+    \subitem {toggle}, \hyperpage{18}
+    \subitem {toggleMask}, \hyperpage{18}
+    \subitem {value}, \hyperpage{19}
+    \subitem {valueOut}, \hyperpage{19}
+    \subitem {write}, \hyperpage{19}
+    \subitem {write8}, \hyperpage{19}
+  \item {PCF8574.cpp}, \hyperpage{21}
+
+  \indexspace
+
+  \item {read}
+    \subitem {PCF8574}, \hyperpage{15}
+  \item {read8}
+    \subitem {PCF8574}, \hyperpage{16}
+  \item {readButton}
+    \subitem {PCF8574}, \hyperpage{16}
+  \item {readButton8}
+    \subitem {PCF8574}, \hyperpage{16}
+  \item {rotateLeft}
+    \subitem {PCF8574}, \hyperpage{16}
+  \item {rotateRight}
+    \subitem {PCF8574}, \hyperpage{17}
+
+  \indexspace
+
+  \item {select}
+    \subitem {PCF8574}, \hyperpage{17}
+  \item {selectN}
+    \subitem {PCF8574}, \hyperpage{17}
+  \item {setAddress}
+    \subitem {PCF8574}, \hyperpage{17}
+  \item {setButtonMask}
+    \subitem {PCF8574}, \hyperpage{18}
+  \item {shiftLeft}
+    \subitem {PCF8574}, \hyperpage{18}
+  \item {shiftRight}
+    \subitem {PCF8574}, \hyperpage{18}
+
+  \indexspace
+
+  \item {toggle}
+    \subitem {PCF8574}, \hyperpage{18}
+  \item {toggleMask}
+    \subitem {PCF8574}, \hyperpage{18}
+
+  \indexspace
+
+  \item {value}
+    \subitem {PCF8574}, \hyperpage{19}
+  \item {valueOut}
+    \subitem {PCF8574}, \hyperpage{19}
+
+  \indexspace
+
+  \item {write}
+    \subitem {PCF8574}, \hyperpage{19}
+  \item {write8}
+    \subitem {PCF8574}, \hyperpage{19}
+
+\end{theindex}

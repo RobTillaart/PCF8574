@@ -1,0 +1,460 @@
+\hypertarget{class_p_c_f8574}{}\doxysection{PCF8574 Class Reference}
+\label{class_p_c_f8574}\index{PCF8574@{PCF8574}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_c_f8574_a5d4aaf4274db278e3cde9ed29f74820a}{PCF8574}} (const uint8\+\_\+t device\+Address=0x20, Two\+Wire $\ast$wire=\&Wire)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_p_c_f8574_a5d4aaf4274db278e3cde9ed29f74820a}{PCF8574\+::\+PCF8574}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_p_c_f8574_ab6c15186a3aa710314bcedf51e6159c5}{begin}} (uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_a0fc0278cf63d5dfe394cd0e71f6b50c7}{value}}=PCF8574\+\_\+\+INITIAL\+\_\+\+VALUE)
+\begin{DoxyCompactList}\small\item\em init \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} instance \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_p_c_f8574_a45730500bb189e9afb24272e6cc1363c}{is\+Connected}} ()
+\begin{DoxyCompactList}\small\item\em check if device is connected \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_p_c_f8574_a0215fe4089787ef9ba2f156b7e9c6a7e}{set\+Address}} (const uint8\+\_\+t device\+Address)
+\begin{DoxyCompactList}\small\item\em set address of \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} device \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_ad5db899248c28dc31dedcd8bbe9b5e0b}{get\+Address}} ()
+\begin{DoxyCompactList}\small\item\em getter for I2C address of pcf7485 device should be in the range of 0x20...0x27 \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_ad1f05a6b26d1edd8efcaade9b7f7ac76}{read8}} ()
+\begin{DoxyCompactList}\small\item\em read all 8 bit at once from \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_ab8a91e75ac2da4c597c0e9e0ddf004b4}{read}} (const uint8\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em read one bit from \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} device \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_a0fc0278cf63d5dfe394cd0e71f6b50c7}{value}} () const
+\begin{DoxyCompactList}\small\item\em returns the last read inputs again, as this information is buffered in the class this is faster than re-\/read the pins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_a1e039b5c9a4e7e6fa69c845671de429b}{write8}} (const uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_a0fc0278cf63d5dfe394cd0e71f6b50c7}{value}})
+\begin{DoxyCompactList}\small\item\em write all 8 bit at once to \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} device \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_a1a1cdd75e7a165740f51420a21e2fbea}{write}} (const uint8\+\_\+t pin, const uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_a0fc0278cf63d5dfe394cd0e71f6b50c7}{value}})
+\begin{DoxyCompactList}\small\item\em writes a single pin; pin = 0..7. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_ad963f3ac652515a709d7d1f3dc0a09c2}{value\+Out}} () const
+\begin{DoxyCompactList}\small\item\em returns the last written data. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_ae75586bf48c874b3acc4165d9ed68e14}{read\+Button8}} ()
+\begin{DoxyCompactList}\small\item\em returns the set button\+Mask. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_ae670ce93356e6655e6d445e220d6c179}{read\+Button8}} (const uint8\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em read Button mask. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_a4cb19c380a4f8e9c9da9a09a5b4aa2d3}{read\+Button}} (const uint8\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em read button read a single input pin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_a2201f6465830105a409068c62cef54b8}{set\+Button\+Mask}} (const uint8\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em sets the bit mask which lines are input. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_p_c_f8574_a85112c831563bb48dedcb5ee1ae09d05}{get\+Button\+Mask}} ()
+\begin{DoxyCompactList}\small\item\em returns the internal button mask member \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_a52d1168de2ce309ba453f2a0faad5903}{toggle}} (const uint8\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em toggle one bit on \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} device \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_ad2df71317283c80529ad9e645c2d16fc}{toggle\+Mask}} (const uint8\+\_\+t mask=0x\+FF)
+\begin{DoxyCompactList}\small\item\em toggles a selection of pins, if you want to invert all pins use 0x\+FF (default value). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_a2b086b723da6193c6e6bb9fdca8cec1f}{shift\+Right}} (const uint8\+\_\+t n=1)
+\begin{DoxyCompactList}\small\item\em shifts output channels n pins (default 1) pins right (e.\+g. LEDs ). Fills the higher lines with zero\textquotesingle{}s. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_a33601ad41b8a7c1a97c4589585c51200}{shift\+Left}} (const uint8\+\_\+t n=1)
+\begin{DoxyCompactList}\small\item\em shifts output channels n pins (default 1) pins left (e.\+g. LEDs ). Fills the lower lines with zero\textquotesingle{}s \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_a88cfdfe86039fff2b5234cd648e4c92a}{rotate\+Right}} (const uint8\+\_\+t n=1)
+\begin{DoxyCompactList}\small\item\em rotates output channels to right, moving lowest line to highest line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_ac00d13e47d5add0114bfae8a5fd8ec4d}{rotate\+Left}} (const uint8\+\_\+t n=1)
+\begin{DoxyCompactList}\small\item\em rotates output channels to left, moving highest line to lowest line. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_c_f8574_ae05c9f30130b46ddb4790a99b8af2b72}\label{class_p_c_f8574_ae05c9f30130b46ddb4790a99b8af2b72}} 
+void \mbox{\hyperlink{class_p_c_f8574_ae05c9f30130b46ddb4790a99b8af2b72}{reverse}} ()
+\begin{DoxyCompactList}\small\item\em reverse the \char`\"{}bit pattern\char`\"{} of the lines, swapping pin 7 with 0, 6 with 1, 5 with 2 etc. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_a4729e0c74a9ce68a3f607d56320f646b}{select}} (const uint8\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em select sets the specified pin pin to High, all others set to Low. If pin $>$ 7 all pins are set to LOW. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_c_f8574_a725a81a737bef0e75b6e1278f3f41f78}{selectN}} (const uint8\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em select sets the pins from 0...pin to High, all others set to Low. If pin $>$ 7 all pins are set to LOW. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_c_f8574_a3281a7b3964597e062e571dc086eabb1}\label{class_p_c_f8574_a3281a7b3964597e062e571dc086eabb1}} 
+void \mbox{\hyperlink{class_p_c_f8574_a3281a7b3964597e062e571dc086eabb1}{select\+None}} ()
+\begin{DoxyCompactList}\small\item\em sets all pins to LOW. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_c_f8574_aef0da6a47b4445e6034ddfe45ff90fdb}\label{class_p_c_f8574_aef0da6a47b4445e6034ddfe45ff90fdb}} 
+void \mbox{\hyperlink{class_p_c_f8574_aef0da6a47b4445e6034ddfe45ff90fdb}{select\+All}} ()
+\begin{DoxyCompactList}\small\item\em sets all pins to HIGH. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_p_c_f8574_a7ff1e0bafd84605e179e7963c44b41f4}{last\+Error}} ()
+\begin{DoxyCompactList}\small\item\em returns the last error from the lib (see .h file). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_c_f8574_a5d4aaf4274db278e3cde9ed29f74820a}\label{class_p_c_f8574_a5d4aaf4274db278e3cde9ed29f74820a}} 
+\index{PCF8574@{PCF8574}!PCF8574@{PCF8574}}
+\index{PCF8574@{PCF8574}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{PCF8574()}{PCF8574()}}
+{\footnotesize\ttfamily PCF8574\+::\+PCF8574 (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{device\+Address = {\ttfamily 0x20},  }\item[{Two\+Wire $\ast$}]{wire = {\ttfamily \&Wire} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_p_c_f8574_a5d4aaf4274db278e3cde9ed29f74820a}{PCF8574\+::\+PCF8574}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Address} & optional address of I2C device; default = 0x20; \\
+\hline
+{\em wire} & optional address of Wire instance; default = \&Wire; \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_c_f8574_ab6c15186a3aa710314bcedf51e6159c5}\label{class_p_c_f8574_ab6c15186a3aa710314bcedf51e6159c5}} 
+\index{PCF8574@{PCF8574}!begin@{begin}}
+\index{begin@{begin}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily bool PCF8574\+::begin (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value = {\ttfamily PCF8574\+\_\+INITIAL\+\_\+VALUE} }\end{DoxyParamCaption})}
+
+
+
+init \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} instance 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & optional init value to write; default = 0x\+FF; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_ad5db899248c28dc31dedcd8bbe9b5e0b}\label{class_p_c_f8574_ad5db899248c28dc31dedcd8bbe9b5e0b}} 
+\index{PCF8574@{PCF8574}!getAddress@{getAddress}}
+\index{getAddress@{getAddress}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{getAddress()}{getAddress()}}
+{\footnotesize\ttfamily uint8\+\_\+t PCF8574\+::get\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter for I2C address of pcf7485 device should be in the range of 0x20...0x27 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t address 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_a85112c831563bb48dedcb5ee1ae09d05}\label{class_p_c_f8574_a85112c831563bb48dedcb5ee1ae09d05}} 
+\index{PCF8574@{PCF8574}!getButtonMask@{getButtonMask}}
+\index{getButtonMask@{getButtonMask}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{getButtonMask()}{getButtonMask()}}
+{\footnotesize\ttfamily uint8\+\_\+t PCF8574\+::get\+Button\+Mask (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the internal button mask member 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t the mask for input lines 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_a45730500bb189e9afb24272e6cc1363c}\label{class_p_c_f8574_a45730500bb189e9afb24272e6cc1363c}} 
+\index{PCF8574@{PCF8574}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool PCF8574\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check if device is connected 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_a7ff1e0bafd84605e179e7963c44b41f4}\label{class_p_c_f8574_a7ff1e0bafd84605e179e7963c44b41f4}} 
+\index{PCF8574@{PCF8574}!lastError@{lastError}}
+\index{lastError@{lastError}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{lastError()}{lastError()}}
+{\footnotesize\ttfamily int PCF8574\+::last\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the last error from the lib (see .h file). 
+
+\begin{DoxyReturn}{Returns}
+int error value to return 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_ab8a91e75ac2da4c597c0e9e0ddf004b4}\label{class_p_c_f8574_ab8a91e75ac2da4c597c0e9e0ddf004b4}} 
+\index{PCF8574@{PCF8574}!read@{read}}
+\index{read@{read}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily uint8\+\_\+t PCF8574\+::read (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin }\end{DoxyParamCaption})}
+
+
+
+read one bit from \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} device 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & pin to read (0...7) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_ad1f05a6b26d1edd8efcaade9b7f7ac76}\label{class_p_c_f8574_ad1f05a6b26d1edd8efcaade9b7f7ac76}} 
+\index{PCF8574@{PCF8574}!read8@{read8}}
+\index{read8@{read8}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{read8()}{read8()}}
+{\footnotesize\ttfamily uint8\+\_\+t PCF8574\+::read8 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+read all 8 bit at once from \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t value read from device 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_a4cb19c380a4f8e9c9da9a09a5b4aa2d3}\label{class_p_c_f8574_a4cb19c380a4f8e9c9da9a09a5b4aa2d3}} 
+\index{PCF8574@{PCF8574}!readButton@{readButton}}
+\index{readButton@{readButton}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{readButton()}{readButton()}}
+{\footnotesize\ttfamily uint8\+\_\+t PCF8574\+::read\+Button (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin }\end{DoxyParamCaption})}
+
+
+
+read button read a single input pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & pin number to be read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t value read from pin 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_ae75586bf48c874b3acc4165d9ed68e14}\label{class_p_c_f8574_ae75586bf48c874b3acc4165d9ed68e14}} 
+\index{PCF8574@{PCF8574}!readButton8@{readButton8}}
+\index{readButton8@{readButton8}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{readButton8()}{readButton8()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t PCF8574\+::read\+Button8 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the set button\+Mask. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t the mask for input lines 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_ae670ce93356e6655e6d445e220d6c179}\label{class_p_c_f8574_ae670ce93356e6655e6d445e220d6c179}} 
+\index{PCF8574@{PCF8574}!readButton8@{readButton8}}
+\index{readButton8@{readButton8}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{readButton8()}{readButton8()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t PCF8574\+::read\+Button8 (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{mask }\end{DoxyParamCaption})}
+
+
+
+read Button mask. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mask} & use the mask set by set\+Button\+Mask to select specific input pins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\ast$ uint8\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_ac00d13e47d5add0114bfae8a5fd8ec4d}\label{class_p_c_f8574_ac00d13e47d5add0114bfae8a5fd8ec4d}} 
+\index{PCF8574@{PCF8574}!rotateLeft@{rotateLeft}}
+\index{rotateLeft@{rotateLeft}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{rotateLeft()}{rotateLeft()}}
+{\footnotesize\ttfamily void PCF8574\+::rotate\+Left (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{n = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+rotates output channels to left, moving highest line to lowest line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of moves \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_a88cfdfe86039fff2b5234cd648e4c92a}\label{class_p_c_f8574_a88cfdfe86039fff2b5234cd648e4c92a}} 
+\index{PCF8574@{PCF8574}!rotateRight@{rotateRight}}
+\index{rotateRight@{rotateRight}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{rotateRight()}{rotateRight()}}
+{\footnotesize\ttfamily void PCF8574\+::rotate\+Right (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{n = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+rotates output channels to right, moving lowest line to highest line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of moves \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_a4729e0c74a9ce68a3f607d56320f646b}\label{class_p_c_f8574_a4729e0c74a9ce68a3f607d56320f646b}} 
+\index{PCF8574@{PCF8574}!select@{select}}
+\index{select@{select}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{select()}{select()}}
+{\footnotesize\ttfamily void PCF8574\+::select (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin }\end{DoxyParamCaption})}
+
+
+
+select sets the specified pin pin to High, all others set to Low. If pin $>$ 7 all pins are set to LOW. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & pin which should be set to 1 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_a725a81a737bef0e75b6e1278f3f41f78}\label{class_p_c_f8574_a725a81a737bef0e75b6e1278f3f41f78}} 
+\index{PCF8574@{PCF8574}!selectN@{selectN}}
+\index{selectN@{selectN}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{selectN()}{selectN()}}
+{\footnotesize\ttfamily void PCF8574\+::selectN (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin }\end{DoxyParamCaption})}
+
+
+
+select sets the pins from 0...pin to High, all others set to Low. If pin $>$ 7 all pins are set to LOW. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & pin up to which should be set to 1 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_a0215fe4089787ef9ba2f156b7e9c6a7e}\label{class_p_c_f8574_a0215fe4089787ef9ba2f156b7e9c6a7e}} 
+\index{PCF8574@{PCF8574}!setAddress@{setAddress}}
+\index{setAddress@{setAddress}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{setAddress()}{setAddress()}}
+{\footnotesize\ttfamily bool PCF8574\+::set\+Address (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{device\+Address }\end{DoxyParamCaption})}
+
+
+
+set address of \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} device 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Address} & I2C address; possible values 0x20...0x27 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_a2201f6465830105a409068c62cef54b8}\label{class_p_c_f8574_a2201f6465830105a409068c62cef54b8}} 
+\index{PCF8574@{PCF8574}!setButtonMask@{setButtonMask}}
+\index{setButtonMask@{setButtonMask}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{setButtonMask()}{setButtonMask()}}
+{\footnotesize\ttfamily void PCF8574\+::set\+Button\+Mask (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sets the bit mask which lines are input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mask} & bit mask of inputs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_a33601ad41b8a7c1a97c4589585c51200}\label{class_p_c_f8574_a33601ad41b8a7c1a97c4589585c51200}} 
+\index{PCF8574@{PCF8574}!shiftLeft@{shiftLeft}}
+\index{shiftLeft@{shiftLeft}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{shiftLeft()}{shiftLeft()}}
+{\footnotesize\ttfamily void PCF8574\+::shift\+Left (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{n = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+shifts output channels n pins (default 1) pins left (e.\+g. LEDs ). Fills the lower lines with zero\textquotesingle{}s 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of shifts \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_a2b086b723da6193c6e6bb9fdca8cec1f}\label{class_p_c_f8574_a2b086b723da6193c6e6bb9fdca8cec1f}} 
+\index{PCF8574@{PCF8574}!shiftRight@{shiftRight}}
+\index{shiftRight@{shiftRight}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{shiftRight()}{shiftRight()}}
+{\footnotesize\ttfamily void PCF8574\+::shift\+Right (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{n = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+shifts output channels n pins (default 1) pins right (e.\+g. LEDs ). Fills the higher lines with zero\textquotesingle{}s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of shifts \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_a52d1168de2ce309ba453f2a0faad5903}\label{class_p_c_f8574_a52d1168de2ce309ba453f2a0faad5903}} 
+\index{PCF8574@{PCF8574}!toggle@{toggle}}
+\index{toggle@{toggle}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{toggle()}{toggle()}}
+{\footnotesize\ttfamily void PCF8574\+::toggle (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin }\end{DoxyParamCaption})}
+
+
+
+toggle one bit on \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} device 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & pin number for write (0...7) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_ad2df71317283c80529ad9e645c2d16fc}\label{class_p_c_f8574_ad2df71317283c80529ad9e645c2d16fc}} 
+\index{PCF8574@{PCF8574}!toggleMask@{toggleMask}}
+\index{toggleMask@{toggleMask}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{toggleMask()}{toggleMask()}}
+{\footnotesize\ttfamily void PCF8574\+::toggle\+Mask (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{mask = {\ttfamily 0xFF} }\end{DoxyParamCaption})}
+
+
+
+toggles a selection of pins, if you want to invert all pins use 0x\+FF (default value). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mask} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_a0fc0278cf63d5dfe394cd0e71f6b50c7}\label{class_p_c_f8574_a0fc0278cf63d5dfe394cd0e71f6b50c7}} 
+\index{PCF8574@{PCF8574}!value@{value}}
+\index{value@{value}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily uint8\+\_\+t PCF8574\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the last read inputs again, as this information is buffered in the class this is faster than re-\/read the pins. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t internal member \+\_\+data\+In 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_ad963f3ac652515a709d7d1f3dc0a09c2}\label{class_p_c_f8574_ad963f3ac652515a709d7d1f3dc0a09c2}} 
+\index{PCF8574@{PCF8574}!valueOut@{valueOut}}
+\index{valueOut@{valueOut}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{valueOut()}{valueOut()}}
+{\footnotesize\ttfamily uint8\+\_\+t PCF8574\+::value\+Out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the last written data. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t internal member \+\_\+data\+Out 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_c_f8574_a1a1cdd75e7a165740f51420a21e2fbea}\label{class_p_c_f8574_a1a1cdd75e7a165740f51420a21e2fbea}} 
+\index{PCF8574@{PCF8574}!write@{write}}
+\index{write@{write}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void PCF8574\+::write (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pin,  }\item[{const uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+writes a single pin; pin = 0..7. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & pin number for write (0...7) \\
+\hline
+{\em value} & value to write, HIGH(1) or LOW (0) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_c_f8574_a1e039b5c9a4e7e6fa69c845671de429b}\label{class_p_c_f8574_a1e039b5c9a4e7e6fa69c845671de429b}} 
+\index{PCF8574@{PCF8574}!write8@{write8}}
+\index{write8@{write8}!PCF8574@{PCF8574}}
+\doxysubsubsection{\texorpdfstring{write8()}{write8()}}
+{\footnotesize\ttfamily void PCF8574\+::write8 (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+write all 8 bit at once to \mbox{\hyperlink{class_p_c_f8574}{PCF8574}} device 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & to write \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+PCF8574.\+h\item 
+\mbox{\hyperlink{_p_c_f8574_8cpp}{PCF8574.\+cpp}}\end{DoxyCompactItemize}
