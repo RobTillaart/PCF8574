@@ -1,0 +1,15 @@
+name: DOXYGEN
+
+on: [push, pull_request]
+jobs:
+  doxygen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mattnotmitt/doxygen-action@v1.9.8
+        with:
+          working-directory: '.'
+          doxyfile-path: 'doxygen'
+      - run: |
+          ls -alR
