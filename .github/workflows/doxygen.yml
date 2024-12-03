@@ -10,6 +10,6 @@ jobs:
       - uses: mattnotmitt/doxygen-action@v1.9.8
         with:
           working-directory: '.'
-          doxyfile-path: 'doxygen'
+          doxyfile-path: 'Doxyfile'
       - run: |
           ls -alR
