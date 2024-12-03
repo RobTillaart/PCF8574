@@ -54,7 +54,7 @@ public:
   uint8_t readButton8(const uint8_t mask);
   uint8_t readButton(const uint8_t pin);
   void    setButtonMask(const uint8_t mask) { _buttonMask = mask; };
-  uint8_t getButtonMask() { return _buttonMask; };
+  uint8_t getButtonMask() const { return _buttonMask; };
 
 
   //  rotate, shift, toggle, reverse expect all lines are output
