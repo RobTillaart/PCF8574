@@ -77,11 +77,12 @@ public:
 
 
 private:
+  int     _error {PCF8574_OK};
   uint8_t _address;
-  uint8_t _dataIn;
-  uint8_t _dataOut;
-  uint8_t _buttonMask;
-  int     _error;
+  uint8_t _dataIn {0};
+  uint8_t _dataOut {0xFF};
+  uint8_t _buttonMask {0xFF};
+  
 
   TwoWire*  _wire;
 };

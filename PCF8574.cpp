@@ -12,14 +12,8 @@
 
 
 PCF8574::PCF8574(const uint8_t deviceAddress, TwoWire *wire)
-{
-  _address    = deviceAddress;
-  _wire       = wire;
-  _dataIn     = 0;
-  _dataOut    = 0xFF;
-  _buttonMask = 0xFF;
-  _error      = PCF8574_OK;
-}
+: _address {deviceAddress}, _wire {wire}
+{}
 
 
 bool PCF8574::begin(uint8_t value)
