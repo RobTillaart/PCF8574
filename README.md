@@ -224,12 +224,42 @@ See examples.
 
 It is advised to use pull-up or pull-down resistors so the lines have a defined state at startup.
 
+## Automated Documatation Creation
+By the use of Doxygen it is able to run an automated documentation build.
+
+### Installation
+
+To be able to run the doxygen build you need to install doxygen
+```
+sudo apt install doxygen
+```
+To be able to create PDF Output you need to install LaTex.
+
+```
+sudo apt install texlive-full
+```
+
+## Usage
+To build the documentation you have to use the following comand on the commandline
+
+```
+doxygen Doxyfile
+```
+
+After that you should be able to create the PDF by:
+
+```
+cd doxygen/latex
+make
+```
+After that you will find the **refman.pdf** in the `doxygen/latex` folder.
+
+Have fun.
 
 ## Future
 
 #### Must
 
-- update documentation.
 - keep in sync with PCF8575  (as far as meaningful)
 
 #### Should
