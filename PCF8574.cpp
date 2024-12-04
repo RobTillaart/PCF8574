@@ -61,17 +61,6 @@ bool PCF8574::setAddress(const uint8_t deviceAddress)
 }
 
 /**
- * @brief getter for I2C address of pcf7485 device
- *  should be in the range of 0x20...0x27
- * 
- * @return uint8_t address
- */
-uint8_t PCF8574::getAddress()
-{
-  return _address;
-}
-
-/**
  * @brief read all 8 bit at once from PCF8574
  * 
  * @return uint8_t value read from device
