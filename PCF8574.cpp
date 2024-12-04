@@ -36,19 +36,11 @@ bool PCF8574::isConnected()
   return ( _wire->endTransmission() == 0);
 }
 
-
 bool PCF8574::setAddress(const uint8_t deviceAddress)
 {
   _address = deviceAddress;
   return isConnected();
 }
-
-
-uint8_t PCF8574::getAddress()
-{
-  return _address;
-}
-
 
 //  removed _wire->beginTransmission(_address);
 //  with    @100 KHz -> 265 micros()

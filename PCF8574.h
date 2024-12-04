@@ -36,8 +36,7 @@ public:
   //  note: setting the address corrupt internal buffer values
   //  a read8() / write8() call updates them.
   bool    setAddress(const uint8_t deviceAddress);
-  uint8_t getAddress();
-
+  uint8_t getAddress() const { return _address; }
 
   uint8_t read8();
   uint8_t read(const uint8_t pin);
@@ -54,7 +53,7 @@ public:
   uint8_t readButton8(const uint8_t mask);
   uint8_t readButton(const uint8_t pin);
   void    setButtonMask(const uint8_t mask) { _buttonMask = mask; };
-  uint8_t getButtonMask() { return _buttonMask; };
+  uint8_t getButtonMask() const { return _buttonMask; };
 
 
   //  rotate, shift, toggle, reverse expect all lines are output
