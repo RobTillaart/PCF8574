@@ -240,7 +240,7 @@ sudo apt install texlive-full
 ```
 
 ## Usage
-To build the documentation you have to use the following comand on the commandline
+To build the documentation you have to use the following comand on the commandline:
 
 ```
 doxygen Doxyfile
@@ -253,6 +253,8 @@ cd doxygen/latex
 make
 ```
 After that you will find the **refman.pdf** in the `doxygen/latex` folder.
+
+[See also the doxygen site](https://www.doxygen.nl/manual/index.html)
 
 Have fun.
 
