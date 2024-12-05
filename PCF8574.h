@@ -204,7 +204,7 @@ class PCF8574 {
      * swapping pin 7 with 0, 6 with 1, 5 with 2 etc.
      * 
      */
-    void    reverse();
+    void reverse();
 
     /**
      * @brief select sets the specified pin pin to High,
@@ -212,7 +212,7 @@ class PCF8574 {
      * 
      * @param pin pin which should be set to 1
      */
-    void    select(const uint8_t pin);
+    void select(const uint8_t pin);
 
     /**
      * @brief select sets the pins from 0...pin to High,
@@ -220,7 +220,7 @@ class PCF8574 {
      * 
      * @param pin pin up to which should be set to 1
      */
-    void    selectN(const uint8_t pin);
+    void selectN(const uint8_t pin);
 
     /**
      * @brief sets all pins to LOW.
