@@ -1,14 +1,3 @@
-/**
- *    @file PCF8574.cpp
- *  @author Rob Tillaart
- *    @date 02-febr-2013
- * @version 0.4.2
- *   @brief Arduino library for PCF8574 - 8 channel I2C IO expander
- *
- *     @see https://github.com/RobTillaart/PCF8574
- *     @see http://forum.arduino.cc/index.php?topic=184800
-*/
-
 #include "PCF8574.h"
 
 PCF8574::PCF8574(const uint8_t deviceAddress, TwoWire *wire)
