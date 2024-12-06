@@ -171,7 +171,7 @@ during program execution.
 - **uint8_t readButton8()** use the mask set by setButtonMask to select specific input pins.
 - **uint8_t readButton8(const uint8_t mask)** use a specific mask to select specific input pins.
 Note this can be a subset of the pins set with **setButtonMask()** if one wants to process not all.
-- **uint8_t readButton(const uint8_t pin)** read a singe input pin.
+- **uint8_t readButton(const uint8_t pin)** read a single input pin.
 
 Background - https://github.com/RobTillaart/Arduino/issues/38
 
@@ -224,12 +224,44 @@ See examples.
 
 It is advised to use pull-up or pull-down resistors so the lines have a defined state at startup.
 
+## Automated Documatation Creation
+By the use of Doxygen it is able to run an automated documentation build.
+
+### Installation
+
+To be able to run the doxygen build you need to install doxygen
+```
+sudo apt install doxygen
+```
+To be able to create PDF Output you need to install LaTex.
+
+```
+sudo apt install texlive-full
+```
+
+## Usage
+To build the documentation you have to use the following comand on the commandline:
+
+```
+doxygen Doxyfile
+```
+
+After that you should be able to create the PDF by:
+
+```
+cd doxygen/latex
+make
+```
+After that you will find the **refman.pdf** in the `doxygen/latex` folder.
+
+[See also the doxygen site](https://www.doxygen.nl/manual/index.html)
+
+Have fun.
 
 ## Future
 
 #### Must
 
-- update documentation.
 - keep in sync with PCF8575  (as far as meaningful)
 
 #### Should

@@ -1,20 +1,8 @@
-//
-//    FILE: PCF8574.cpp
-//  AUTHOR: Rob Tillaart
-//    DATE: 02-febr-2013
-// VERSION: 0.4.1
-// PURPOSE: Arduino library for PCF8574 - 8 channel I2C IO expander
-//     URL: https://github.com/RobTillaart/PCF8574
-//          http://forum.arduino.cc/index.php?topic=184800
-
-
 #include "PCF8574.h"
-
 
 PCF8574::PCF8574(const uint8_t deviceAddress, TwoWire *wire)
 : _address {deviceAddress}, _wire {wire}
 {}
-
 
 bool PCF8574::begin(uint8_t value)
 {
@@ -22,7 +10,6 @@ bool PCF8574::begin(uint8_t value)
   PCF8574::write8(value);
   return true;
 }
-
 
 bool PCF8574::isConnected()
 {
@@ -36,11 +23,6 @@ bool PCF8574::setAddress(const uint8_t deviceAddress)
   return isConnected();
 }
 
-//  removed _wire->beginTransmission(_address);
-//  with    @100 KHz -> 265 micros()
-//  without @100 KHz -> 132 micros()
-//  without @400 KHz -> 52 micros()
-//  TODO    @800 KHz -> ??
 uint8_t PCF8574::read8()
 {
   if (_wire->requestFrom(_address, (uint8_t)1) != 1)
@@ -51,16 +33,6 @@ uint8_t PCF8574::read8()
   _dataIn = _wire->read();
   return _dataIn;
 }
-
-
-void PCF8574::write8(const uint8_t value)
-{
-  _dataOut = value;
-  _wire->beginTransmission(_address);
-  _wire->write(_dataOut);
-  _error = _wire->endTransmission();
-}
-
 
 uint8_t PCF8574::read(const uint8_t pin)
 {
@@ -73,6 +45,13 @@ uint8_t PCF8574::read(const uint8_t pin)
   return (_dataIn & (1 << pin)) > 0;
 }
 
+void PCF8574::write8(const uint8_t value)
+{
+  _dataOut = value;
+  _wire->beginTransmission(_address);
+  _wire->write(_dataOut);
+  _error = _wire->endTransmission();
+}
 
 void PCF8574::write(const uint8_t pin, const uint8_t value)
 {
@@ -92,7 +71,6 @@ void PCF8574::write(const uint8_t pin, const uint8_t value)
   write8(_dataOut);
 }
 
-
 void PCF8574::toggle(const uint8_t pin)
 {
   if (pin > 7)
@@ -103,13 +81,11 @@ void PCF8574::toggle(const uint8_t pin)
   toggleMask(1 << pin);
 }
 
-
 void PCF8574::toggleMask(const uint8_t mask)
 {
   _dataOut ^= mask;
   PCF8574::write8(_dataOut);
 }
-
 
 void PCF8574::shiftRight(const uint8_t n)
 {
@@ -119,7 +95,6 @@ void PCF8574::shiftRight(const uint8_t n)
   PCF8574::write8(_dataOut);
 }
 
-
 void PCF8574::shiftLeft(const uint8_t n)
 {
   if ((n == 0) || (_dataOut == 0)) return;
@@ -128,14 +103,12 @@ void PCF8574::shiftLeft(const uint8_t n)
   PCF8574::write8(_dataOut);
 }
 
-
 int PCF8574::lastError()
 {
   int e = _error;
   _error = PCF8574_OK;  //  reset error after read, is this wise?
   return e;
 }
-
 
 void PCF8574::rotateRight(const uint8_t n)
 {
@@ -145,12 +118,10 @@ void PCF8574::rotateRight(const uint8_t n)
   PCF8574::write8(_dataOut);
 }
 
-
 void PCF8574::rotateLeft(const uint8_t n)
 {
   rotateRight(8 - (n & 7));
 }
-
 
 void PCF8574::reverse()  //  quite fast: 4 and, 14 shifts, 3 or, 3 assignment.
 {
@@ -161,8 +132,6 @@ void PCF8574::reverse()  //  quite fast: 4 and, 14 shifts, 3 or, 3 assignment.
   PCF8574::write8(x);
 }
 
-
-//  added 0.1.07/08 Septillion
 uint8_t PCF8574::readButton8(const uint8_t mask)
 {
   uint8_t temp = _dataOut;
@@ -172,8 +141,6 @@ uint8_t PCF8574::readButton8(const uint8_t mask)
   return _dataIn;
 }
 
-
-//  added 0.1.07 Septillion
 uint8_t PCF8574::readButton(const uint8_t pin)
 {
   if (pin > 7)
@@ -189,14 +156,12 @@ uint8_t PCF8574::readButton(const uint8_t pin)
   return value;
 }
 
-
 void PCF8574::select(const uint8_t pin)
 {
   uint8_t n = 0x00;
   if (pin < 8) n = 1 << pin;
   write8(n);
 };
-
 
 void PCF8574::selectN(const uint8_t pin)
 {
@@ -205,6 +170,4 @@ void PCF8574::selectN(const uint8_t pin)
   write8(n);
 };
 
-
 //  -- END OF FILE --
-
