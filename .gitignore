@@ -1,3 +1,6 @@
+# gitignore
+.gitignore
+
 # html files by doxygen
 doxygen/html/
 
