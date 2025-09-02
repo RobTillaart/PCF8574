@@ -10,7 +10,9 @@
 
 #include "PCF8574.h"
 
-const int I2C_BUFFER_LENGTH = 30;  //  AVR limit - 1 for address 
+#ifndef I2C_BUFFER_LENGTH
+#define I2C_BUFFER_LENGTH    (32)
+#endif
 
 
 PCF8574::PCF8574(const uint8_t deviceAddress, TwoWire *wire)
@@ -98,7 +100,7 @@ void PCF8574::write(const uint8_t pin, const uint8_t value)
 //  experimental 0.4.4
 bool PCF8574::writeArray(uint8_t *array, uint8_t size)
 {
-  if (size > I2C_BUFFER_LENGTH)
+  if (size > (I2C_BUFFER_LENGTH - 1))
   {
     _error = PCF8574_BUFFER_LENGTH_ERROR;
     return false;
@@ -117,7 +119,7 @@ bool PCF8574::writeArray(uint8_t *array, uint8_t size)
 
 bool PCF8574::readArray(uint8_t *array, uint8_t size)
 {
-  if (size > I2C_BUFFER_LENGTH)
+  if (size > (I2C_BUFFER_LENGTH - 1))
   {
     _error = PCF8574_BUFFER_LENGTH_ERROR;
     return false;
