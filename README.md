@@ -109,9 +109,12 @@ before calling **begin()**.
 - https://github.com/RobTillaart/TCA9554  I2C 8 IO lines.
 
 Other libs based upon PCF8574
-- https://github.com/RobTillaart/I2CKeyPad
-- https://github.com/RobTillaart/rotaryDecoder
-- https://github.com/RobTillaart/rotaryDecoderSwitch
+- https://github.com/RobTillaart/I2C_HC4067 - multiplexer 1x16
+- https://github.com/RobTillaart/I2CKeyPad - 4x4 keypad
+- https://github.com/RobTillaart/I2C_LCD - 20x4 LCD
+- https://github.com/RobTillaart/PIR - 8 channel PIR detection
+- https://github.com/RobTillaart/rotaryDecoder - max 4 RE in parallel
+- https://github.com/RobTillaart/rotaryDecoderSwitch - max 2 RE with switch
 
 Backgrounder
 - https://www.flywing-tech.com/blog/pcf8574-i2c-address-pinout-interfacing-guide-2026-update/
@@ -162,7 +165,7 @@ too if they are behind the multiplexer.
 ```
 
 **PCF8574_INITIAL_VALUE** is a define 0xFF that can be set compile time or before
-the include of "pcf8574.h" to overrule the default value used with the **begin()** call.
+the include of "PCF8574.h" to overrule the default value used with the **begin()** call.
 
 
 ### Constructor
