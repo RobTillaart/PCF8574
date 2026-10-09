@@ -96,7 +96,6 @@ before calling **begin()**.
 ### Related
 
 16 bit port expanders
-
 - https://github.com/RobTillaart/MCP23017_RT  I2C 16 IO lines.
 - https://github.com/RobTillaart/MCP23S17  SPI 16 IO lines.
 - https://github.com/RobTillaart/PCF8575  I2C 16 IO lines.
@@ -104,17 +103,18 @@ before calling **begin()**.
 - https://github.com/RobTillaart/TCA9555  I2C 16 IO lines.
 
 8 bit port expanders
-
 - https://github.com/RobTillaart/MCP23008  I2C 8 IO lines.
 - https://github.com/RobTillaart/MCP23S08  SPI 8 IO lines.
 - https://github.com/RobTillaart/PCF8574  I2C 8 IO lines.
 - https://github.com/RobTillaart/TCA9554  I2C 8 IO lines.
 
 Other libs based upon PCF8574
-
 - https://github.com/RobTillaart/I2CKeyPad
 - https://github.com/RobTillaart/rotaryDecoder
 - https://github.com/RobTillaart/rotaryDecoderSwitch
+
+Backgrounder
+- https://www.flywing-tech.com/blog/pcf8574-i2c-address-pinout-interfacing-guide-2026-update/
 
 
 ## I2C
