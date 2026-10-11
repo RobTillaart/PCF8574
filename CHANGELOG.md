@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.4.6] - 2026-08-27
 - add PCF8574_pulses.ino
 - add PCF8574_pulses_duty_cycle.ino
+- add note about issue #59: NO_GLOBAL_TWOWIRE
 - update frameworks in library.json
 - reduce build-CI
 - minor edits

@@ -60,6 +60,8 @@ This implies that polling the PCF8574 can miss an INT in scenario 1. (see #48)
 In practice if you have faster polling than your signals changes this would not
 be a problem. E.g. tactile switches and a polling frequency > 100 Hz will work.
 
+Note: Use pull-up or pull-down resistors so the IO lines have a defined state at startup.
+
 
 ### Interrupts library
 
@@ -308,11 +310,23 @@ This can typical be used to implement a VU meter.
 |  PCF8574_I2C_ERROR  |  0x82   |  I2C communication error  |
 
 
-## Operation
+## Issue #59 - NO_GLOBAL_TWOWIRE
 
-See examples.
+In issue #59 a request was made to have a constructor without defaults.
+This would allow the library to be used when no global Wire object is created.
+This request is not implemented as it is a rare case.
 
-It is advised to use pull-up or pull-down resistors so the lines have a defined state at startup.
+The solution is to replace the current constructor with the following code.
+
+```
+//  Issue #59
+//  Select a constructor depending on existence of global Wire object.
+#if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_TWOWIRE)
+   PCF8574(const uint8_t deviceAddress = 0x20, TwoWire *wire = &Wire);
+#else
+   PCF8574(const uint8_t deviceAddress, TwoWire *wire);
+#endif
+```
 
 
 ## Future
